@@ -1,0 +1,21 @@
+{
+  "name": "cupgame",
+  "version": "0.0.1",
+  "description": "REALTIME CUP",
+  "main": "server.js",
+  "scripts": {
+    "test": "run cupgame",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "cupgame"
+  ],
+  "author": "JOEMAR BACLEA-AN",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.16.4",
+    "moment-timezone": "^0.5.25",
+    "mongodb": "^3.2.3",
+    "socket.io": "^2.2.0"
+  }
+}

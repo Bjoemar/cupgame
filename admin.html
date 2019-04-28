@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game Administrator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<div class="admin-holder">
+		<div class="game-title">
+			<label><img style="display: inline-block;" src="http://realbet365.net/assets/images/dollycircle.png">돌리고(60~6)</label>
+		</div>
+		<div class="roullete-image">
+			<button class="rbtn" value="1" style="
+			    top: 15px;
+			    right: 128px;
+			    transform: rotate(3deg);
+			">1</button>
+						<button class="rbtn" value="2" style="
+			    top: 20px;
+			    right: 107px;
+			    transform: rotate(17deg);
+			">2</button>
+						<button class="rbtn" value="3" style="
+			    top: 31px;
+			    right: 88px;
+			    transform: rotate(31deg);
+			">3</button>
+						<button class="rbtn" value="4" style="
+			    top: 46px;
+			    right: 72px;
+			    transform: rotate(45deg);
+			">4</button>
+						<button class="rbtn" value="5" style="
+			    top: 66px;
+			    right: 61px;
+			    transform: rotate(59deg);
+			">5</button>
+						<button class="rbtn" value="6" style="
+			    top: 85px;
+			    right: 57px;
+			    transform: rotate(76deg);
+			">6</button>
+						<button class="rbtn" value="7" style="
+			    top: 107px;
+			    right: 57px;
+			    transform: rotate(90deg);
+			">7</button>
+						<button class="rbtn" value="8" style="
+			    top: 125px;
+			    right: 63px;
+			    transform: rotate(107deg);
+			">8</button>
+						<button class="rbtn" value="9" style="
+			    top: 146px;
+			    right: 73px;
+			    transform: rotate(120deg);
+			">9</button>
+						<button class="rbtn" value="10" style="
+			    top: 160px;
+			    right: 89px;
+			    transform: rotate(135deg);
+			">10</button>
+						<button class="rbtn" value="11" style="
+			    top: 171px;
+			    right: 108px;
+			    transform: rotate(150deg);
+			">11</button>
+						<button class="rbtn" value="12" style="
+			    top: 176px;
+			    right: 128px;
+			    transform: rotate(165deg);
+			">12</button>
+						<button class="rbtn" value="13" style="
+			    top: 14px;
+			    right: 147px;
+			    transform: rotate(-14deg);
+			">13</button>
+						<button class="rbtn" value="14" style="
+			    top: 20px;
+			    right: 168px;
+			    transform: rotate(-28deg);
+			">14</button>
+						<button class="rbtn" value="15" style="
+			    top: 29px;
+			    right: 186px;
+			    transform: rotate(-45deg);
+			">15</button>
+						<button class="rbtn" value="16" style="
+			    top: 44px;
+			    right: 201px;
+			    transform: rotate(-60deg);
+			">16</button>
+						<button class="rbtn" value="17" style="
+			    top: 61px;
+			    right: 213px;
+			    transform: rotate(-75deg);
+			">17</button>
+						<button class="rbtn" value="18" style="
+			    top: 83px;
+			    right: 218px;
+			    transform: rotate(-89deg);
+			">18</button>
+						<button class="rbtn" value="19" style="
+			    top: 103px;
+			    right: 218px;
+			    transform: rotate(-105deg);
+			">19</button>
+						<button class="rbtn" value="20" style="
+			    top: 123px;
+			    right: 214px;
+			    transform: rotate(-121deg);
+			">20</button>
+						<button class="rbtn" value="21" style="
+			    top: 143px;
+			    right: 203px;
+			    transform: rotate(-134deg);
+			">21</button>
+						<button class="rbtn" value="22" style="
+			    top: 158px;
+			    right: 188px;
+			    transform: rotate(-150deg);
+			">22</button>
+						<button class="rbtn" value="23" style="
+			    top: 170px;
+			    right: 170px;
+			    transform: rotate(-164deg);
+			">23</button>
+						<button class="rbtn" value="24" style="
+			    top: 175px;
+			    right: 150px;
+			    transform: rotate(-180deg);
+			">24</button>
+		</div>
+
+
+	    <div class="admin-status">
+	    	<div class="success-status">적용</div>
+	    	<!-- <div class="delete-status">Delete</div> -->
+	    	<div class="clear-result">삭제</div>
+	    </div>
+
+
+	    <div class="next-res-holder">
+	    	<div class="rb-result number-res"></div>
+	    	<div class="rb-result main-resColor"></div>
+	    	<div class="rb-result second-resColor"></div>
+	    	<div class="rb-result direction-color"></div>
+
+	    </div>
+
+
+
+
+	</div>
+
+</body>
+
+<script type="text/javascript" src="static/admin.js"></script>
+</html>

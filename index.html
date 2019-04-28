@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cup game</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<script src="/socket.io/socket.io.js"></script>
+<body>
+
+<div class="gameHolder">
+	<div class="timer-holder" style="text-align: center;">
+		<div class="nowRound" style="display: inline-block; margin-left: 5px;">
+			<h2>라운드 : <span id="topRounds"></span></h2>
+		</div>
+		<div class="betCountdown" style="display: inline-block;">
+			<span id="bet-time">500</span>
+
+		</div>
+	</div>
+	<div class="gameplay-area">
+	<div class="player-holder">
+		<div class="object-position position1">
+			<img src="assets/images/kick_jump.png">
+			<img src="assets/images/kick_smile.png">
+		</div>
+		<div class="object-position position2">
+			<img src="assets/images/kick_jump.png">
+			<img src="assets/images/kick_smile.png">
+		</div>
+		<div class="object-position position3">
+			<img src="assets/images/kick_jump.png">
+			<img src="assets/images/kick_smile.png">
+		</div>
+	</div>
+		<div class="boxHolder">
+			<div id="box-object-1" class="box-objects">
+				<div class="boxImg-holder">
+					<img class="box-top-body" src="assets/images/box_o_t.png">
+					<img class="box-down-body" src="assets/images/box_o_b.png">
+					<img class="box-close-body" src="assets/images/box_c.png">
+				</div>
+			</div>
+			<div id="box-object-2" class="box-objects">
+				<div class="boxImg-holder">
+					<img class="box-top-body" src="assets/images/box_o_t.png">
+					<img class="box-down-body" src="assets/images/box_o_b.png">
+					<img class="box-close-body" src="assets/images/box_c.png">
+				</div>
+			</div>
+			<div id="box-object-3" class="box-objects">
+				<div class="boxImg-holder">
+					<img class="box-top-body" src="assets/images/box_o_t.png">
+					<img class="box-down-body" src="assets/images/box_o_b.png">
+					<img class="box-close-body" src="assets/images/box_c.png">
+				</div>
+			
+			</div>
+		
+		</div> <!-- boxholder -->
+
+	</div><!--  gameplay-area -->
+
+	<div id="gameLoader">
+		<div id="timer">배팅에 참여하세요</div>
+		<div id="loading"></div>
+	</div>
+
+	<a href="#">
+		<button id="resultDirect">Hash Code + Salt Code 결과값 조회하기</button></a>
+
+		 <div class="gameInfo">
+	        <div class="g-info lvl">이전라운드 <span></span></div>
+	        <div class="g-info hashCode"><label>Hash <span></span></label></div>
+	        <div class="clear"></div>
+	    </div>
+
+</div> <!-- end of gameHolder -->
+
+</body>
+<script type="text/javascript" src="static/game.js"></script>
+</html>
