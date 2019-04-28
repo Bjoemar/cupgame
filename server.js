@@ -70,14 +70,14 @@ setInterval(function(){
 			var roundy = moment().format('mm');
 			var rounds = (parseInt(roundy)+parseInt(roundx)) + 1;
 			var nowdate = moment().format('YYYY-MM-DD');
-
+			var decideToshow = Math.floor(Math.random() * 3 ) + 1;
 			var secret_code = rounds+'cupgame'+moment().format('DD-MM-YYY');
 			const hash = crypto.createHmac('sha256', secret_code).digest('hex');
 
 
 			var gameResult = Math.floor(Math.random() * 3 ) + 1;
 
-			io.sockets.emit('gameData' , {'rounds' : rounds , 'hash' : hash , 'result' : gameResult});
+			io.sockets.emit('gameData' , {'rounds' : rounds , 'hash' : hash , 'result' : gameResult , 'showPosition' : decideToshow});
 
 
 			MongoClient.connect(url, {userNewUrlParse : true} , function (err, db) {

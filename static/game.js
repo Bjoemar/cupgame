@@ -92,7 +92,7 @@ $('.hashCode span').html(data.hash);
 result = data.result;
 
 // $('.object-position img').hide();
-	showKick(); // I shoshow nya yung image;
+	showKick(data.showPosition); // I shoshow nya yung image;
 
 
 	setTimeout(function(){ // do this function after 3 seconds
@@ -135,8 +135,8 @@ function closeBox() { // Papalitan yung image box-top-body and box-down-body na 
 	// NOTE!! Kaya may timeout is para mauuna mag sara yung first box sunod second box and third box
 }
 
-function showKick(){
-	var decideToshow = Math.floor(Math.random() * 3 ) + 1; // Mag gegenerate sya nang number 1 to 3;
+function showKick(decideToshow){
+	 // Mag gegenerate sya nang number 1 to 3;
 
 	if (decideToshow == 1 ) { // if 1 ang generated number
 
