@@ -41,6 +41,10 @@ app.get('/gameResult',function(request, response){
 	response.sendFile(path.join(__dirname, 'gameResult.html'));
 })
 
+app.get('/admin',function(request, response){
+	response.sendFile(path.join(__dirname, 'admin.html'));
+})
+
 
 
 
@@ -59,12 +63,24 @@ server.listen(server_port , server_ip_address , function(){
 
 app.use(express.static('./'));
 
+
+var gameRes = 0;
+
+function genRes(){
+
+	return Math.floor(Math.random() * 3 ) + 1;
+
+}
+
+gameRes = genRes();
+
 setInterval(function(){
 	var seconds = 60 - moment().format('ss');
 	io.sockets.emit('sec' ,seconds);
 
-
+	console.log(gameRes)
 	if(seconds == 1){
+
 
 			var roundx = moment().format('HH') * 60;
 			var roundy = moment().format('mm');
@@ -75,9 +91,7 @@ setInterval(function(){
 			const hash = crypto.createHmac('sha256', secret_code).digest('hex');
 
 
-			var gameResult = Math.floor(Math.random() * 3 ) + 1;
-
-			io.sockets.emit('gameData' , {'rounds' : rounds , 'hash' : hash , 'result' : gameResult , 'showPosition' : decideToshow});
+			io.sockets.emit('gameData' , {'rounds' : rounds , 'hash' : hash , 'result' : gameRes , 'showPosition' : decideToshow});
 
 
 			MongoClient.connect(url, {userNewUrlParse : true} , function (err, db) {
@@ -89,7 +103,7 @@ setInterval(function(){
 						nowdate : nowdate,
 						rounds : rounds,
 						hash : hash,
-						gameResult : gameResult,
+						gameResult : gameRes,
 					}
 
 					var jsonObj = {
@@ -110,9 +124,10 @@ setInterval(function(){
 						db.close();
 					});
 				},1000);
-
-
 		});
+		setTimeout(function(){
+		gameRes = genRes();	
+		},5000);
 			
 
 	}
@@ -123,7 +138,18 @@ setInterval(function(){
 
 io.on('connection' ,function(socket){
 
+
+	socket.on('game_administrator',function(data){
+
+		gameRes = data;
+
+	})
+
+
+
+
 	socket.on('newVisitor',function(){
+	
 		socketid = socket.id;
 
 		MongoClient.connect(url, { userNewUrlParse : true }, function(err , db){

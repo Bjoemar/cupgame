@@ -26,6 +26,7 @@ var today = new Date();
 
 
 $('#result-limit').change(function(){
+
 	$('.table-loading').show();
 	var result_limit = $('#result-limit option:selected').val();
 	var result_limit = parseInt(result_limit)
@@ -36,13 +37,11 @@ $('#result-limit').change(function(){
 	$('#result-limit').css({
 		'pointer-events' : 'none',
 	})
-
 });
 
 function process(today_data_date) {
 
 	var result_limit = $('#result-limit option:selected').val();
-	// console.log(result_limit)
 	var result_limit = parseInt(result_limit)
 	socket.emit('LoadMoreResult',{'result_limit' : result_limit , 'today_data_date'  : today_data_date});
 
@@ -60,8 +59,10 @@ $('#sniff_result').click(function(){
 	$('.categ').css({
 		'pointer-events' : 'none'
 	})
+
 	$('.table-loading').show();
 });
+
 
 $(document).ready(function(){
 	socket.emit('newVisitor',{today_data_date});
@@ -75,61 +76,56 @@ socket.on('fightdata',function(newdata){
 
 	setTimeout(function(){
 
-		// if (newdata.gameResult == 1) {
-		// 		winnerdata = 'p1'; 
-		// 	} else if (newdata.gameResult == 2) {
-		// 		winnerdata = 'p2';
-		// 	} else {
-		// 		winnerdata = 'draw';
-		// 	}
-
 			if (lastresType == winnerdata) {
 
-			  		if (newdata.gameResult == '1') {
+		  		if (newdata.gameResult == '1') {
 
-				  		lastresType = '1';
+			  		lastresType = '1';
 
-				  		$('.innerResult .columns').last().append('<dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd>');
+			  		$('.innerResult .columns').last().append('<dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd>');
 
-				  	} else if (newdata.gameResult == '2') {
+			  	} else if (newdata.gameResult == '2') {
 
-				  		lastresType = '2';
+			  		lastresType = '2';
 
-				  		$('.innerResult .columns').last().append('<dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd>');
+			  		$('.innerResult .columns').last().append('<dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd>');
 
-				  	} else if (newdata.gameResult == '3') {
+			  	} else if (newdata.gameResult == '3') {
 
-				  		lastresType = '3';
+			  		lastresType = '3';
 
-				  		$('.innerResult .columns').last().append('<dd><div class="circle-green res-circle">'+newdata.rounds+'</div></dd>');
-				  	}
+			  		$('.innerResult .columns').last().append('<dd><div class="circle-green res-circle">'+newdata.rounds+'</div></dd>');
+			  	}
 
-				 } else {
+			} else {
 
-				 	innerwidth = (innerwidth + 35) - 1;
+			 	innerwidth = (innerwidth + 35) - 1;
 
-				 	if (newdata.gameResult == '1') {
-				 		lastresType = '1';
-				 		$('.innerResult').append('<dl class="columns sblue"><dt>남</dt><dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd></dl>');
-				 	}else if (newdata.gameResult == '2'){
+			 	if (newdata.gameResult == '1') {
+			 		lastresType = '1';
+			 		$('.innerResult').append('<dl class="columns sblue"><dt>남</dt><dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd></dl>');
+			 	}else if (newdata.gameResult == '2'){
 
-				 		lastresType = '2';
-				 		$('.innerResult').append('<dl class="columns sred"><dt>여</dt><dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd></dl>');
+			 		lastresType = '2';
+			 		$('.innerResult').append('<dl class="columns sred"><dt>여</dt><dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd></dl>');
 
-				 	}else if (newdata.gameResult == '3'){
+			 	}else if (newdata.gameResult == '3'){
 
-				 		lastresType = '3';
-				 		$('.innerResult').append('<dl class="columns sgreen"><dt>무</dt><dd><div class="circle-green res-circle">'+newdata.rounds+'</div></dd></dl>');
-				 	}
-				 }
+			 		lastresType = '3';
+			 		$('.innerResult').append('<dl class="columns sgreen"><dt>무</dt><dd><div class="circle-green res-circle">'+newdata.rounds+'</div></dd></dl>');
+			 	}
 
-				 if (loading == false) {
-				 	$('.innerResult').css({
-				 		width : innerwidth,
-				 	});
+			}
 
-				 	$('.resultHolder').animate({scrollLeft : innerwidth},500);
-				 }
+
+
+			if (loading == false) {
+			 	$('.innerResult').css({
+			 		width : innerwidth,
+			 	});
+
+			 	$('.resultHolder').animate({scrollLeft : innerwidth},500);
+			}
 
 	},7500);
 
@@ -140,13 +136,12 @@ setTimeout(function(){
 		 // location.reload(true);
 	}
 
-
-	
 	var innersizelimiter = $('.columns').length;
 
 	var innerwidthsize = (innersizelimiter * 34) + 500;
+	
 	if (innerwidth > innerwidthsize) {
-		// location.reload(true);
+		location.reload(true);
 	}
 
 },3000);

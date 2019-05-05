@@ -144,9 +144,9 @@ body{
     font-size: 1em;
 }
 .gameInfo{
-	height:40px;
-	width: 100%
-	padding 5px;
+	height: 40px;
+	width: 100%;
+	padding: 5px;
 }
 .g-info{
 	display: inline-block;
@@ -170,6 +170,30 @@ width: 18%;
 	margin: auto;
 	width: 830px;
 }
+.modal-body h2 {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.modal-body p {
+    color: #81bf39;
+    font-size: 16px;
+    margin-top: 0;
+    direction: block;
+}
+.modal-dialog {
+    max-width: 100%!important;
+}
+
+.modal-content {
+    background-color: #2c2f36!important;
+    color: white;
+    overflow: auto;
+}
+
+.modal-header{
+    border: none!important;
+}
 
 
 
@@ -190,7 +214,7 @@ width: 18%;
 
 @media only screen and (max-width: 600px) {
 	.gameplay-area{
-		zoom:0.53;
+		zoom:0.47;
 	}
 
 

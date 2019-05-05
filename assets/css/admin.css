@@ -1,0 +1,33 @@
+body{
+	background-color: #171a1c!important;
+
+}
+.content{
+	height: 70px;
+	width: 250px;
+/*	border: 1px solid white;*/
+	text-align: center;
+	margin-top: 10px;
+	border-radius: 10px;
+
+}
+.button-holder button{
+	height: 50px;
+	width: 80px;
+	border-radius: 20px;
+	margin-top: 10px;
+	font-size: 20px;
+}
+h3{
+	color: white;
+}
+.box-close-body{
+	width: 70px;
+	height: 50px;
+	margin-top: 10px;
+}
+.button-holder {
+	border-bottom: 1px solid white;
+	width: 280px;
+	padding-bottom: 10px;
+}

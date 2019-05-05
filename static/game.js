@@ -1,5 +1,19 @@
 var socket = io();
 
+$(window).on('blur focus',function(e){
+	var prevType = $(this).data('prevType');
+
+	if(prevType != e.type) {
+		switch (e.type){
+			case 'blur':
+
+			Audio.volume = 0.0;
+
+			break;
+		}
+	}
+})
+
 socket.on('sec',function(seconds){
 
 if (seconds < 10) {
@@ -72,6 +86,9 @@ socket.on('gameData',function(data){ // Galing sa server Gagawin nya each time n
 
 
 
+	Audio.volume = 1;
+
+
  runtimes = 0;
 	
  b1pos = 40; 
@@ -92,7 +109,19 @@ $('.hashCode span').html(data.hash);
 result = data.result;
 
 // $('.object-position img').hide();
+
+		var snd1 = new Audio('../assets/sounds/showKick.mp3');
+		snd1.play();
+
+setTimeout(function(){
+	setTimeout(function(){
+	var snd = new Audio('../assets/sounds/kickFall.mp3');
+	snd.play();
+
+ },500);
 	showKick(data.showPosition); // I shoshow nya yung image;
+
+},400);
 
 
 	setTimeout(function(){ // do this function after 3 seconds
@@ -110,32 +139,54 @@ result = data.result;
 
 function closeBox() { // Papalitan yung image box-top-body and box-down-body na image+
 
+
 	setTimeout(function(){ // 0.1 seconds bago nya i hide and i show yung close box
+		
+			
+		setTimeout(function(){
+		var snd1 = new Audio('../assets/sounds/click2.mp3');
+		snd1.play();
+		},5); // end ofsetTimeout function snd 1
 
 		$('#box-object-1 .box-top-body').hide(); // hide si box-top-body
 		$('#box-object-1 .box-down-body').hide(); // hide si box-down-body
 		$('#box-object-1 .box-close-body').show(); // papakita yung close box
 
-	},100);
+	},200);
 
 	setTimeout(function(){ // 0.3 seconds bago nya i hide and i show yung close box
+		setTimeout(function(){
+		var snd2 = new Audio('../assets/sounds/click2.mp3');
+		snd2.play();
+
+		},5); //end of setTimeout function snd2
+		
 		$('#box-object-2 .box-top-body').hide();
 		$('#box-object-2 .box-down-body').hide();
+		
 		$('#box-object-2 .box-close-body').show();
-	},300);
+	},400);
 
 	setTimeout(function(){ // 0.4 seconds bago nya i hide and i show yung close box
+		setTimeout(function(){
+		var snd3 = new Audio('../assets/sounds/click2.mp3');
+		snd3.play();
+
+		},5); // end of end of setTimeout function snd3
+
 		$('#box-object-3 .box-top-body').hide();
 		$('#box-object-3 .box-down-body').hide();
 		$('#box-object-3 .box-close-body').show();
 
-	},500);
+	},600);
 
 
 	// NOTE!! Kaya may timeout is para mauuna mag sara yung first box sunod second box and third box
 }
 
 function showKick(decideToshow){
+
+
 	 // Mag gegenerate sya nang number 1 to 3;
 
 	if (decideToshow == 1 ) { // if 1 ang generated number
@@ -270,9 +321,13 @@ function resetGame(){ // Reset game is for get things to normal;
 function startAnimation(){ // Codes nang pagpagalaw nang box
 
 
-	var decideMove = Math.floor(Math.random() * 3) +1; // mag generate nang number between 1 - 3;
 
+
+	var decideMove = Math.floor(Math.random() * 3) +1; // mag generate nang number between 1 - 3;
+		var snd1 = new Audio('../assets/sounds/switching-box.mp3');
+		snd1.play();
 	if (decideMove == 1) { // and number na generated is = 1
+
 
 
 		$(positionA).animate({
@@ -352,11 +407,14 @@ function startAnimation(){ // Codes nang pagpagalaw nang box
 
 function showResult(){ // 
 
+		var snd1 = new Audio('../assets/sounds/KickAssResult.mp3');
+		snd1.play();
+
 
 	$('.box-close-body').hide(); // hide si box na close
 	$('.box-top-body').show(); // papakita yung open box
 	$('.box-down-body').show();	 // papakita yung open box
-
+console.log(result)
 	if(result == 1){ // animate yung ulo ni kick pataas bandang left
 		$('.position1 img').first().next().show();
 		$('.position1 img').css({
@@ -385,10 +443,14 @@ socket.emit('newVisitor');
 
 socket.on('loadData' , function(data){
 
-
 	$('#topRounds').html(data[0].rounds + 1 );
 	$('.lvl span').html(data[0].rounds);
 	$('.hashCode span').html(data[0].hash);
 
 
+});
+
+$('#resultDirect').click(function(){
+	$('#round-history').modal('show');
+	$('#resultIframe').attr('src',$('#resultIframe').attr('src'));
 });

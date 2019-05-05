@@ -291,27 +291,3 @@ table th {
     float: right;
     margin-top:;
 }
-.modal-body h2 {
-    font-size: 16px;
-    margin-bottom: 0;
-}
-
-.modal-body p {
-    color: #81bf39;
-    font-size: 16px;
-    margin-top: 0;
-    direction: block;
-}
-.modal-dialog {
-    max-width: 100%!important;
-}
-
-.modal-content {
-    background-color: #2c2f36!important;
-    color: white;
-    overflow: auto;
-}
-
-.modal-header{
-    border: none!important;
-}
