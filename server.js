@@ -38,7 +38,7 @@ app.get('/',function(request, response){
 
 
 app.get('/gameResult',function(request, response){
-	response.sendFile(path.join(__dirname, 'gameResult.html'));
+	response.sendFile(path.join(__dirname, 'gameresult.html'));
 })
 
 app.get('/admin',function(request, response){
