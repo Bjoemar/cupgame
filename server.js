@@ -166,7 +166,6 @@ io.on('connection' ,function(socket){
 	})
 
 socket.on('LoadMoreResult',function(data){
-	console.log(data)
 	socketid = socket.id;
 
 	MongoClient.connect(url, { userNewUrlParse : true}, function(err,db){
