@@ -110,23 +110,23 @@ result = data.result;
 
 // $('.object-position img').hide();
 
-		var snd = new Howl({
+		// var snd = new Howl({
 
-			src:['../assets/sounds/showKick.mp3'],
+		// 	src:['../assets/sounds/showKick.mp3'],
 
-			volume:0.5,
-			});
-		snd.play();
+		// 	volume:0.5,
+		// 	});
+		// snd.play();
 
 setTimeout(function(){
-	setTimeout(function(){
-	var snd = new Howl({
-		src:['../assets/sounds/kickFall.mp3'],
-		volume:0.5,
-	});
-	snd.play();
+	// setTimeout(function(){
+	// var snd = new Howl({
+	// 	src:['../assets/sounds/kickFall.mp3'],
+	// 	volume:0.5,
+	// });
+	// snd.play();
 
- },500);
+ // },500);
 	showKick(data.showPosition); // I shoshow nya yung image;
 
 },400);
@@ -151,14 +151,14 @@ function closeBox() { // Papalitan yung image box-top-body and box-down-body na 
 	setTimeout(function(){ // 0.1 seconds bago nya i hide and i show yung close box
 		
 			
-		setTimeout(function(){
+		// setTimeout(function(){
 
-		var snd1 = new Howl({
-			src:['../assets/sounds/click2.mp3'],
-			volume:0.5,
-		});
-		snd1.play();
-		},5); // end ofsetTimeout function snd 1
+		// var snd1 = new Howl({
+		// 	src:['../assets/sounds/click2.mp3'],
+		// 	volume:0.5,
+		// });
+		// snd1.play();
+		// },5); // end ofsetTimeout function snd 1
 
 		$('#box-object-1 .box-top-body').hide(); // hide si box-top-body
 		$('#box-object-1 .box-down-body').hide(); // hide si box-down-body
@@ -168,17 +168,17 @@ function closeBox() { // Papalitan yung image box-top-body and box-down-body na 
 
 	setTimeout(function(){ // 0.3 seconds bago nya i hide and i show yung close box
 		
-		setTimeout(function(){
+		// setTimeout(function(){
 		
-		var snd2 = new Howl({
+		// var snd2 = new Howl({
 
-			src:['../assets/sounds/click2.mp3'],
-			volume:0.5,
-		});
+		// 	src:['../assets/sounds/click2.mp3'],
+		// 	volume:0.5,
+		// });
 		
-		snd2.play();
+		// snd2.play();
 
-		},5); //end of setTimeout function snd2
+		// },5); //end of setTimeout function snd2
 		
 		$('#box-object-2 .box-top-body').hide();
 		$('#box-object-2 .box-down-body').hide();
@@ -187,16 +187,16 @@ function closeBox() { // Papalitan yung image box-top-body and box-down-body na 
 	},400);
 
 	setTimeout(function(){ // 0.4 seconds bago nya i hide and i show yung close box
-		setTimeout(function(){
+		// setTimeout(function(){
 		
-		var snd3 = new Howl({
-			src:['../assets/sounds/click2.mp3'],
-			volume:0.5,
-		});
+		// var snd3 = new Howl({
+		// 	src:['../assets/sounds/click2.mp3'],
+		// 	volume:0.5,
+		// });
 		
-		snd3.play();
+		// snd3.play();
 
-		},5); // end of end of setTimeout function snd3
+		// },5); // end of end of setTimeout function snd3
 
 		$('#box-object-3 .box-top-body').hide();
 		$('#box-object-3 .box-down-body').hide();
@@ -353,12 +353,12 @@ function startAnimation(){ // Codes nang pagpagalaw nang box
 
 	var decideMove = Math.floor(Math.random() * 3) +1; // mag generate nang number between 1 - 3;
 
-		var snd1 = new Howl({
-			src:['../assets/sounds/switching-box.mp3'],
-			volume:0.5,
-	});
+	// 	var snd1 = new Howl({
+	// 		src:['../assets/sounds/switching-box.mp3'],
+	// 		volume:0.5,
+	// });
 		
-		snd1.play();
+	// 	snd1.play();
 	
 	if (decideMove == 1) { // and number na generated is = 1
 
@@ -441,12 +441,12 @@ function startAnimation(){ // Codes nang pagpagalaw nang box
 
 function showResult(){ // 
 
-		var snd1 = new Howl({
+		// var snd1 = new Howl({
 
-			src:['../assets/sounds/KickAssResult.mp3'],
-			volume:0.5,
-		});
-		snd1.play();
+		// 	src:['../assets/sounds/KickAssResult.mp3'],
+		// 	volume:0.5,
+		// });
+		// snd1.play();
 
 
 	$('.box-close-body').hide(); // hide si box na close
