@@ -31,3 +31,19 @@ h3{
 	width: 280px;
 	padding-bottom: 10px;
 }
+.result-holder{
+	height: 50px;
+	width: 250px;
+/*	border: 1px solid white;*/
+	margin-top: 10px;
+	position:relative;
+}
+.result-holder button{
+	height: 50px;
+	width: 80px;
+	border-radius: 20px;
+	font-size: 20px;
+	position: absolute;
+	left: 83px;
+	display: none;
+}

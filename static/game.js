@@ -110,12 +110,20 @@ result = data.result;
 
 // $('.object-position img').hide();
 
-		var snd1 = new Audio('../assets/sounds/showKick.mp3');
-		snd1.play();
+		var snd = new Howl({
+
+			src:['../assets/sounds/showKick.mp3'],
+
+			volume:0.5,
+			});
+		snd.play();
 
 setTimeout(function(){
 	setTimeout(function(){
-	var snd = new Audio('../assets/sounds/kickFall.mp3');
+	var snd = new Howl({
+		src:['../assets/sounds/kickFall.mp3'],
+		volume:0.5,
+	});
 	snd.play();
 
  },500);
@@ -144,7 +152,11 @@ function closeBox() { // Papalitan yung image box-top-body and box-down-body na 
 		
 			
 		setTimeout(function(){
-		var snd1 = new Audio('../assets/sounds/click2.mp3');
+
+		var snd1 = new Howl({
+			src:['../assets/sounds/click2.mp3'],
+			volume:0.5,
+		});
 		snd1.play();
 		},5); // end ofsetTimeout function snd 1
 
@@ -155,8 +167,15 @@ function closeBox() { // Papalitan yung image box-top-body and box-down-body na 
 	},200);
 
 	setTimeout(function(){ // 0.3 seconds bago nya i hide and i show yung close box
+		
 		setTimeout(function(){
-		var snd2 = new Audio('../assets/sounds/click2.mp3');
+		
+		var snd2 = new Howl({
+
+			src:['../assets/sounds/click2.mp3'],
+			volume:0.5,
+		});
+		
 		snd2.play();
 
 		},5); //end of setTimeout function snd2
@@ -169,7 +188,12 @@ function closeBox() { // Papalitan yung image box-top-body and box-down-body na 
 
 	setTimeout(function(){ // 0.4 seconds bago nya i hide and i show yung close box
 		setTimeout(function(){
-		var snd3 = new Audio('../assets/sounds/click2.mp3');
+		
+		var snd3 = new Howl({
+			src:['../assets/sounds/click2.mp3'],
+			volume:0.5,
+		});
+		
 		snd3.play();
 
 		},5); // end of end of setTimeout function snd3
@@ -186,6 +210,10 @@ function closeBox() { // Papalitan yung image box-top-body and box-down-body na 
 
 function showKick(decideToshow){
 
+
+		$('.box-top-body').show(); // hide si box-top-body
+		$('.box-down-body').show(); // hide si box-down-body
+		$('.box-close-body').hide(); // papakita yung close box
 
 	 // Mag gegenerate sya nang number 1 to 3;
 
@@ -278,22 +306,23 @@ function showKick(decideToshow){
 function resetGame(){ // Reset game is for get things to normal;
 
 
+	
  // NOTE !! lahat nang variables nag che-change value each time na gagwin yung animation, binalik lang sa dati
-	$('.box-top-body').show();
-	$('.box-down-body').show();
-	$('.box-close-body').hide();
+	$('.box-top-body').hide();
+	$('.box-down-body').hide();
+	$('.box-close-body').show();
 
 	$('.object-position img').css({
 		'bottom' : '1px',
 	});
 
-	$('.box-object-1').css({
+	$('#box-object-1').css({
 		'left' : '40',
 	})
-	$('.box-object-2').css({
+	$('#box-object-2').css({
 		'left' : '310',
 	})
-	$('.box-object-3').css({
+	$('#box-object-3').css({
 		'left' : '585',
 	})
 
@@ -301,6 +330,8 @@ function resetGame(){ // Reset game is for get things to normal;
 
 	// NOTE !! Dahil sa animation nang laro nag bago yung position ang function na to is i seset lang lahat kung ano yung original na position
 }
+
+
 
 	// Variable of animation
 	var runtimes = 0; // Check nya kung ilang beses na nag run yung function na startAnimation
@@ -324,8 +355,14 @@ function startAnimation(){ // Codes nang pagpagalaw nang box
 
 
 	var decideMove = Math.floor(Math.random() * 3) +1; // mag generate nang number between 1 - 3;
-		var snd1 = new Audio('../assets/sounds/switching-box.mp3');
+		
+		var snd1 = new Howl({
+			src:['../assets/sounds/switching-box.mp3'],
+			volume:0.5,
+	});
+		
 		snd1.play();
+	
 	if (decideMove == 1) { // and number na generated is = 1
 
 
@@ -396,7 +433,7 @@ function startAnimation(){ // Codes nang pagpagalaw nang box
         showResult(); // para lumabas ang result
 		setTimeout(function(){
 			resetGame(); // resetNa yung game back to normal layour
-		},15000)
+		},12000)
 		}
 	},300);
 
@@ -407,14 +444,18 @@ function startAnimation(){ // Codes nang pagpagalaw nang box
 
 function showResult(){ // 
 
-		var snd1 = new Audio('../assets/sounds/KickAssResult.mp3');
+		var snd1 = new Howl({
+
+			src:['../assets/sounds/KickAssResult.mp3'],
+			volume:0.5,
+		});
 		snd1.play();
 
 
 	$('.box-close-body').hide(); // hide si box na close
 	$('.box-top-body').show(); // papakita yung open box
 	$('.box-down-body').show();	 // papakita yung open box
-console.log(result)
+// console.log(result)
 	if(result == 1){ // animate yung ulo ni kick pataas bandang left
 		$('.position1 img').first().next().show();
 		$('.position1 img').css({

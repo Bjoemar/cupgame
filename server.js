@@ -47,8 +47,6 @@ app.get('/admin',function(request, response){
 
 
 
-
-
 // server.listen(5000, function() {
 //   console.log('Starting server on port 5000');
 // });
@@ -78,8 +76,8 @@ setInterval(function(){
 	var seconds = 60 - moment().format('ss');
 	io.sockets.emit('sec' ,seconds);
 
-	console.log(gameRes)
-	if(seconds == 1){
+
+	if(seconds == 1 ){
 
 
 			var roundx = moment().format('HH') * 60;
@@ -108,14 +106,17 @@ setInterval(function(){
 
 					var jsonObj = {
 						rounds : rounds,
+						result : gameRes,
+
 					}
 
-					// var fs = require('fs');
-					// let data = JSON.stringify(jsonObj);
+					var fs = require('fs');
+					let data = JSON.stringify(jsonObj);
 
-					// setTimeout(function(){
-					// 	fs.writerfileSync('result.json' , data);
-					// },1000);
+					setTimeout(function(){
+						fs.writeFileSync('result.json' , data);
+					},1000);
+
 
 				setTimeout(function(){
 					dbo.collection('game').insertOne(gameObj , function(eer , res){
@@ -124,7 +125,10 @@ setInterval(function(){
 						db.close();
 					});
 				},1000);
+
 		});
+
+
 		setTimeout(function(){
 		gameRes = genRes();	
 		},5000);

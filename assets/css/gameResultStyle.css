@@ -14,9 +14,10 @@ body{
     margin: auto;
 }
 .gameresult h4{
+    margin-top: 5px;
 	color: #ffffff;
 	text-align: center;
-	font-size: 35px;
+/*	font-size: 35px;*/
 }
 .gameresult h5{
 	color: white;
@@ -129,6 +130,13 @@ table td {
 
 @media only screen and (max-width:  600px) {
 
+ #date-picker {
+    text-align: center;
+    height: 20px;
+    width: 23%;
+    font-size: 6.5px;
+     padding: 2px;
+}
 .gameresult nav{
 	zoom: 0.14;
 }
@@ -290,4 +298,47 @@ table th {
     width: 85%;
     float: right;
     margin-top:;
+}
+
+input[type="date"]::-webkit-clear-button {
+     z-index: 1;
+     display: none;
+ }
+
+input[type="date"]::-webkit-inner-spin-button {
+    z-index: 1;
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+}
+
+input[type="date"]:hover:after {
+    color: #bf1400;
+}
+
+input[type="date"]:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; 
+    content: "\f073";
+    color: #555;
+    padding: 0 5px;
+    display: none;
+}
+
+input[type="date"] {
+    position: relative;
+}
+
+#date-picker {
+    position: absolute;
 }

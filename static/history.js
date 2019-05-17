@@ -16,17 +16,17 @@ var sort = $ ('#date-picker').val();
 socket.emit('HistoryClient' , {sort});
 
 socket.on('loadDatahis' , function(data){
+
 	var pastLen = data.length;
 	var pastimg = "";
 	var sniff_data = '';
 	for(p = 0; p < pastLen; p++){
 		var pastdata = data[p];
 
-
 		$('.gameresult table').append('<tr class="gameobjects"><td class="trounds">'
 			+pastdata.rounds+'</td><td class="thash">'
 			+pastdata.hash+'</td><td class="tsaltcode">'
-			+pastdata._id+'</td><td class="result">'
+			+pastdata._id+'</td><td class="tresult">'
 			+pastdata.gameResult+'</td></tr>')
 	}
 
@@ -35,7 +35,6 @@ socket.on('loadDatahis' , function(data){
 
 socket.on('pageCount',function(data) {
 
-// console.log(data);
 
 	if (data == 0) {
 		$('.pagination').hide();
@@ -46,6 +45,7 @@ socket.on('pageCount',function(data) {
 	var pages = data / 10;
 	pages = Math.ceil(pages);
 	var lastone = pages % 10;
+
 	changePage(pages);
 
 	if (pages < 11) {
@@ -54,56 +54,64 @@ socket.on('pageCount',function(data) {
 	}
 
 
-function prevPage() {
-		if(records_per_page == pages){
 
-			current_page = current_page - 10;
 
-			if(lastone == 0){
-				records_per_page = records_per_page - 10;
+	function prevPage() {
+		
+		if (records_per_page == pages) {
+
+				current_page = current_page - 10;
+
+				if (lastone == 0) {
+					records_per_page = records_per_page - 10;
+				} else {
+
+					records_per_page = records_per_page - lastone;
+				}
+				changePage();
 
 		} else {
 
-			records_per_page = records_per_page = lastone;
-
-		}
-		changePage();
-	} else {
-
-		if(current_page > 1 ){
-			current_page = current_page - 10;
-			records_per_page = records_per_page = 10;
-			changePage();
-		}
-	}
-}
-
-function nextPage() {
-	if (lastone == 0){
-		var rs_limiter = records_per_page;
-	}else {
-		var rs_limiter = records_per_page + 10;
-	}
-
-	var curpage = curpage + 10;
-
-
-	if (records_per_page == pages || curpage == pages) {
-
-	} else {
-
-		if (rs_limiter < pages) {
-
-			current_page = current_page + 10;
-			records_per_page = records_per_page + 10;
-			changePage()
-			
-			} else {
-				current_page = current_page + 10;
-				records_per_page = records_per_page + lastone;
+			if (current_page > 1) {
+				current_page = current_page - 10;
+				records_per_page = records_per_page - 10;
 				changePage();
 			}
 
+		}
+	}
+
+	function nextPage() {
+
+		if (lastone == 0){
+
+			var rs_limiter = records_per_page;
+
+		}else {
+
+			var rs_limiter = records_per_page + 10;
+
+		}
+
+		var curpage = curpage + 10;
+
+
+		if (records_per_page == pages || curpage == pages) {
+
+		} else {
+
+			if (rs_limiter < pages) {
+
+				current_page = current_page + 10;
+				records_per_page = records_per_page + 10;
+				changePage()
+				
+				} else {
+
+					current_page = current_page + 10;
+					records_per_page = records_per_page + lastone;
+					changePage();
+			}
 		}
 	}
 
@@ -117,7 +125,9 @@ $('#nextpage').click(function(){
 	nextPage(pages);
 })
 
+
 function changePage(page){
+	console.log(page)
 
 		// $('.gameobjects').remove();
 		$('.page_content').html('');
@@ -206,7 +216,7 @@ socket.on('invalid' , function(data){
 		$('.gameresult table').append('<tr class="gameobjects"><td class="trounds">'
 			+pastdata.rounds+'</td><td class="thash">'
 			+pastdata.hash+'</td><td class="tsaltcode">'
-			+pastdata._id+'</td><td class="result">'
+			+pastdata._id+'</td><td class="tresult">'
 			+pastdata.gameResult+'</td></tr>')
 		
 		}
@@ -224,7 +234,7 @@ socket.on('invalid' , function(data){
 		$('.gameresult table').append('<tr class="gameobjects"><td class="trounds">'
 			+pastdata.rounds+'</td><td class="thash">'
 			+pastdata.hash+'</td><td class="tsaltcode">'
-			+pastdata._id+'</td><td class="result">'
+			+pastdata._id+'</td><td class="tresult">'
 			+pastdata.gameResult+'</td></tr>')
 		}
  })
