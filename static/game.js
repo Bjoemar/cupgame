@@ -303,18 +303,12 @@ function showKick(decideToshow){
 	// NOTE!! This function is for random kung saan lalabas si kick na itatago;
 }
 
-function resetGame(){ // Reset game is for get things to normal;
-
-
+function resetgame(){ // Reset game is for get things to normal;
 	
  // NOTE !! lahat nang variables nag che-change value each time na gagwin yung animation, binalik lang sa dati
 	$('.box-top-body').hide();
 	$('.box-down-body').hide();
 	$('.box-close-body').show();
-
-	$('.object-position img').css({
-		'bottom' : '1px',
-	});
 
 	$('#box-object-1').css({
 		'left' : '40',
@@ -325,6 +319,10 @@ function resetGame(){ // Reset game is for get things to normal;
 	$('#box-object-3').css({
 		'left' : '585',
 	})
+
+	$('.object-position img').css({
+		'bottom' : '1px',
+	});
 
 	$('.object-position img').hide();
 
@@ -353,9 +351,8 @@ function startAnimation(){ // Codes nang pagpagalaw nang box
 
 
 
-
 	var decideMove = Math.floor(Math.random() * 3) +1; // mag generate nang number between 1 - 3;
-		
+
 		var snd1 = new Howl({
 			src:['../assets/sounds/switching-box.mp3'],
 			volume:0.5,
@@ -432,8 +429,8 @@ function startAnimation(){ // Codes nang pagpagalaw nang box
         
         showResult(); // para lumabas ang result
 		setTimeout(function(){
-			resetGame(); // resetNa yung game back to normal layour
-		},12000)
+		resetgame(); // resetNa yung game back to normal layour
+		},11000)
 		}
 	},300);
 

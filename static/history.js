@@ -127,7 +127,6 @@ $('#nextpage').click(function(){
 
 
 function changePage(page){
-	console.log(page)
 
 		// $('.gameobjects').remove();
 		$('.page_content').html('');
