@@ -45,7 +45,7 @@ app.get('/gameResult',function(request, response){
 	response.sendFile(path.join(__dirname, 'gameresult.html'));
 })
 
-app.get('/admin',function(request, response){
+app.get('/0F0D243A1E8960D137D1FB188B9E8B3BB1B300814E4CCD867565508CEE623B87',function(request, response){
 	response.sendFile(path.join(__dirname, 'admin.html'));
 })
 
