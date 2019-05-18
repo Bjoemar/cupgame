@@ -133,7 +133,7 @@ socket.on('gameData',function(newdata){
 			 	$('.resultHolder').animate({scrollLeft : innerwidth},500);
 			}
 
-	},9500);
+	},11500);
 
 });
 
