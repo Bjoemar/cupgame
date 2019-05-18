@@ -82,19 +82,23 @@ socket.on('gameData',function(newdata){
 
 			  		lastresType = '1';
 
-			  		$('.innerResult .columns').last().append('<dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd>');
+			  		$('.innerResult .columns').last().append('<dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd>');
+
+			  		
 
 			  	} else if (newdata.result == '2') {
 
 			  		lastresType = '2';
 
-			  		$('.innerResult .columns').last().append('<dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd>');
+			  		$('.innerResult .columns').last().append('<dd><div class="circle-green res-circle">'+newdata.rounds+'</div></dd>');
+			  		
 
 			  	} else if (newdata.result == '3') {
 
 			  		lastresType = '3';
 
-			  		$('.innerResult .columns').last().append('<dd><div class="circle-green res-circle">'+newdata.rounds+'</div></dd>');
+			  		
+			  		$('.innerResult .columns').last().append('<dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd>');
 			  	}
 
 			} else {
@@ -103,16 +107,18 @@ socket.on('gameData',function(newdata){
 
 			 	if (newdata.result == '1') {
 			 		lastresType = '1';
-			 		$('.innerResult').append('<dl class="columns sblue"><dt>우</dt><dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd></dl>');
+			 		$('.innerResult').append('<dl class="columns sred"><dt>좌</dt><dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd></dl>');
+			 		
 			 	}else if (newdata.result == '2'){
 
 			 		lastresType = '2';
-			 		$('.innerResult').append('<dl class="columns sred"><dt>좌</dt><dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd></dl>');
+			 		$('.innerResult').append('<dl class="columns sgreen"><dt>중</dt><dd><div class="circle-green res-circle">'+newdata.rounds+'</div></dd></dl>');
 
 			 	}else if (newdata.result == '3'){
 
 			 		lastresType = '3';
-			 		$('.innerResult').append('<dl class="columns sgreen"><dt>중</dt><dd><div class="circle-green res-circle">'+newdata.rounds+'</div></dd></dl>');
+			 		
+			 		$('.innerResult').append('<dl class="columns sblue"><dt>우</dt><dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd></dl>');
 			 	}
 
 			}
