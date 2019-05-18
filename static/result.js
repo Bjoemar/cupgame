@@ -109,12 +109,12 @@ socket.on('gameData',function(newdata){
 			 		lastresType = '1';
 			 		$('.innerResult').append('<dl class="columns sred"><dt>좌</dt><dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd></dl>');
 			 		
-			 	}else if (newdata.result == '2'){
+			 	}else if (newdata.result == '2') {
 
 			 		lastresType = '2';
 			 		$('.innerResult').append('<dl class="columns sgreen"><dt>중</dt><dd><div class="circle-green res-circle">'+newdata.rounds+'</div></dd></dl>');
 
-			 	}else if (newdata.result == '3'){
+			 	}else if (newdata.result == '3') {
 
 			 		lastresType = '3';
 			 		
@@ -133,7 +133,7 @@ socket.on('gameData',function(newdata){
 			 	$('.resultHolder').animate({scrollLeft : innerwidth},500);
 			}
 
-	},7500);
+	},9500);
 
 });
 
