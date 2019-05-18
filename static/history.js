@@ -240,13 +240,13 @@ socket.on('invalid' , function(data){
 			var pastdata = data[p];
 
 			if (pastdata.gameResult == 1) {
-				var colorResult = '.redResult';
+				var colorResult = 'redResult';
 				var gameres = '좌';
 			} else if (pastdata.gameResult == 2) {
-				var colorResult = '.greenResult';
+				var colorResult = 'greenResult';
 				var gameres = '중';
 			} else if (pastdata.gameResult == 3) {
-				var colorResult = '.blueResult';
+				var colorResult = 'blueResult';
 				var gameres = '우';
 			}
 
@@ -271,13 +271,13 @@ socket.on('invalid' , function(data){
 			var pastdata = sortres[p];
 
 			if (pastdata.gameResult == 1) {
-				var colorResult = '.redResult';
+				var colorResult = 'redResult';
 				var gameres = '좌';
 			} else if (pastdata.gameResult == 2) {
-				var colorResult = '.greenResult';
+				var colorResult = 'greenResult';
 				var gameres = '중';
 			} else if (pastdata.gameResult == 3) {
-				var colorResult = '.blueResult';
+				var colorResult = 'blueResult';
 				var gameres = '우';
 			}
 
