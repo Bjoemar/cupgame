@@ -8,6 +8,21 @@ body{
 	clear: both;
 }
 
+.redResult {
+    color: red!important;
+    font-weight: 900;
+}
+
+.greenResult {
+    color: green!important;
+    font-weight: 900;
+}
+
+.blueResult {
+    color: blue!important;
+    font-weight: 900;
+}
+
 .gameresult{
 	padding: 20px;
     width: 1000px;
@@ -221,10 +236,9 @@ table th {
 
 .g-info{
 	font-size: 15px;
-}
     color: #ffffff;
-        text-align: center;
-        font-size: 28px;
+    text-align: center;
+    font-size: 28px;
     }  
 
 

@@ -20,14 +20,27 @@ socket.on('loadDatahis' , function(data){
 	var pastLen = data.length;
 	var pastimg = "";
 	var sniff_data = '';
+
+
 	for(p = 0; p < pastLen; p++){
 		var pastdata = data[p];
+
+		if (pastdata.gameResult == 1) {
+			var colorResult = 'redResult';
+			var gameres = '좌';
+		} else if (pastdata.gameResult == 2) {
+			var colorResult = 'greenResult';
+			var gameres = '중';
+		} else if (pastdata.gameResult == 3) {
+			var colorResult = 'blueResult';
+			var gameres = '우';
+		}
 
 		$('.gameresult table').append('<tr class="gameobjects"><td class="trounds">'
 			+pastdata.rounds+'</td><td class="thash">'
 			+pastdata.hash+'</td><td class="tsaltcode">'
-			+pastdata._id+'</td><td class="tresult">'
-			+pastdata.gameResult+'</td></tr>')
+			+pastdata._id+'</td><td class="tresult '+colorResult+'">'
+			+gameres+'</td></tr>')
 	}
 
 
@@ -174,7 +187,20 @@ socket.on('resdata' , function(data){
 	if (data.length > 0) {
 		$('#invalidtxt').hide();
 		$('#result_round').html(data[0].rounds);
-		$('#result_num').html(data[0].gameResult);
+
+
+		if (data[0].gameResult == 1) {
+			var gameres = '좌';
+			$('#result_num').css('color' , 'red')
+		} else if (data[0].gameResult == 2) {
+			var gameres = '중';
+			$('#result_num').css('color' , 'green')
+		} else if (data[0].gameResult == 3) {
+			var gameres = '우';
+			$('#result_num').css('color' , 'blue')
+		}
+
+		$('#result_num').html(gameres);
 		$('#restext').show();
 
 	}
@@ -212,11 +238,23 @@ socket.on('invalid' , function(data){
 		for(p = 0; p < pastLen; p++) {
 
 			var pastdata = data[p];
+
+			if (pastdata.gameResult == 1) {
+				var colorResult = '.redResult';
+				var gameres = '좌';
+			} else if (pastdata.gameResult == 2) {
+				var colorResult = '.greenResult';
+				var gameres = '중';
+			} else if (pastdata.gameResult == 3) {
+				var colorResult = '.blueResult';
+				var gameres = '우';
+			}
+
 		$('.gameresult table').append('<tr class="gameobjects"><td class="trounds">'
 			+pastdata.rounds+'</td><td class="thash">'
 			+pastdata.hash+'</td><td class="tsaltcode">'
-			+pastdata._id+'</td><td class="tresult">'
-			+pastdata.gameResult+'</td></tr>')
+			+pastdata._id+'</td><td class="tresult '+colorResult+'">'
+			+gameres+'</td></tr>')
 		
 		}
 
@@ -229,12 +267,26 @@ socket.on('invalid' , function(data){
 		var pastLen = sortres.length;
 
 		for(p = 0; p < pastLen; p++) {
-		var pastdata = sortres[p];
-		$('.gameresult table').append('<tr class="gameobjects"><td class="trounds">'
-			+pastdata.rounds+'</td><td class="thash">'
-			+pastdata.hash+'</td><td class="tsaltcode">'
-			+pastdata._id+'</td><td class="tresult">'
-			+pastdata.gameResult+'</td></tr>')
+
+			var pastdata = sortres[p];
+
+			if (pastdata.gameResult == 1) {
+				var colorResult = '.redResult';
+				var gameres = '좌';
+			} else if (pastdata.gameResult == 2) {
+				var colorResult = '.greenResult';
+				var gameres = '중';
+			} else if (pastdata.gameResult == 3) {
+				var colorResult = '.blueResult';
+				var gameres = '우';
+			}
+
+
+			$('.gameresult table').append('<tr class="gameobjects"><td class="trounds">'
+				+pastdata.rounds+'</td><td class="thash">'
+				+pastdata.hash+'</td><td class="tsaltcode">'
+				+pastdata._id+'</td><td class="tresult '+colorResult+'">'
+				+gameres+'</td></tr>')
 		}
  })
 
