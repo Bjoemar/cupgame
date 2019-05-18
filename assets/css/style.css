@@ -9,9 +9,32 @@
 /*	height: 500px;*/
 /*	border: 1px solid red;*/
 }
+
 body{
 	background-color: #171a1c!important;
 }
+
+
+#realbet-animation img {
+
+    width : 100px;
+    margin-bottom: 10px;
+
+}
+
+#realbet-animation {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    padding-top: 100px;
+    text-align: center;
+    background-color: #171a1c;
+    z-index: 100;
+    color: white;
+}
+
+
+
 .nowRound{
 	text-align: center;
 	color: white;
@@ -78,6 +101,8 @@ body{
 #box-object-3{
 	left: 585px;
 }
+
+
 .box-objects {
 /*	border: 1px solid red;*/
 	height: 200px;
@@ -224,4 +249,18 @@ width: 18%;
 		font-size: 0.43em;
 
 	}
+
+
+	
+    #realbet-animation img {
+
+        width : 100px;
+    }
+
+
+    #realbet-animation {
+        position: fixed;
+        padding-top: 70px;
+    }
+
 }
