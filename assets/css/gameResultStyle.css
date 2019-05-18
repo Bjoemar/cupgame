@@ -297,7 +297,10 @@ table th {
         width: 100%;
         margin: auto;
     }
+
 }
+
+
 .m-seperator img {
     object-fit: contain;
     height: 100%;
@@ -308,11 +311,13 @@ table th {
     height: 30px;
     display: inline-block;
 }
+
 #error-msg {
     width: 85%;
     float: right;
     margin-top:;
 }
+
 
 input[type="date"]::-webkit-clear-button {
      z-index: 1;
