@@ -76,7 +76,7 @@ socket.on('gameData',function(newdata){
 
 	setTimeout(function(){
 
-			if (lastresType == newdata) {
+			if (lastresType == newdata.result) {
 
 		  		if (newdata.result == '1') {
 
