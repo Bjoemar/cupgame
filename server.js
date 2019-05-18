@@ -108,9 +108,15 @@ setInterval(function(){
 						gameResult : gameRes,
 					}
 
+					if (gameRes == 1) {
+						var apires = '1';
+					} else {
+						var apires = '2';
+					}
+
 					var jsonObj = {
 						rounds : rounds,
-						result : gameRes,
+						result : apires,
 
 					}
 
