@@ -139,7 +139,7 @@ socket.on('gameData',function(newdata){
 
 setTimeout(function(){
 	if (loading == true) {
-		 // location.reload(true);
+		 location.reload(true);
 	}
 
 	var innersizelimiter = $('.columns').length;
