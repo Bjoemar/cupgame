@@ -86,9 +86,6 @@ socket.on('gameData',function(data){ // Galing sa server Gagawin nya each time n
 
 
 
-	Audio.volume = 1;
-
-
  runtimes = 0;
 	
  b1pos = 40; 
@@ -102,7 +99,10 @@ socket.on('gameData',function(data){ // Galing sa server Gagawin nya each time n
  result = 0; 
  resPos = '';
 
-$('#topRounds').html(data.rounds + 1 );
+setTimeout(function(){
+	$('#topRounds').html(data.rounds + 1 );
+},1000);
+
 $('.lvl span').html(data.rounds);
 $('.hashCode span').html(data.hash);
 
