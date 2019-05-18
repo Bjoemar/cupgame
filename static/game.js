@@ -311,13 +311,15 @@ function resetgame(){ // Reset game is for get things to normal;
 	$('.box-close-body').show();
 
 	$('#box-object-1').css({
-		'left' : '40',
+		'left' : '40px',
 	})
+
 	$('#box-object-2').css({
-		'left' : '310',
+		'left' : '310px',
 	})
+
 	$('#box-object-3').css({
-		'left' : '585',
+		'left' : '585px',
 	})
 
 	$('.object-position img').css({
