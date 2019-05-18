@@ -101,10 +101,10 @@ socket.on('gameData',function(data){ // Galing sa server Gagawin nya each time n
 
 setTimeout(function(){
 	$('#topRounds').html(data.rounds + 1 );
+	$('.lvl span').html(data.rounds);
+	$('.hashCode span').html(data.hash);
 },1000);
 
-$('.lvl span').html(data.rounds);
-$('.hashCode span').html(data.hash);
 
 result = data.result;
 
