@@ -109,9 +109,11 @@ setInterval(function(){
 					}
 
 					if (gameRes == 1) {
-						var apires = '1';
+						var apires = 'A';
+					} else if (gameRes == 2) {
+						var apires = 'B';
 					} else {
-						var apires = '2';
+						var apires = 'C';
 					}
 
 					var jsonObj = {
