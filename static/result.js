@@ -82,7 +82,7 @@ socket.on('gameData',function(newdata){
 
 			  		lastresType = '1';
 
-			  		$('.innerResult .columns').last().append('<dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd>');
+			  		$('.innerResult .columns').last().append('<dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd>');
 
 			  		
 
@@ -98,7 +98,7 @@ socket.on('gameData',function(newdata){
 			  		lastresType = '3';
 
 			  		
-			  		$('.innerResult .columns').last().append('<dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd>');
+			  		$('.innerResult .columns').last().append('<dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd>');
 			  	}
 
 			} else {
@@ -107,7 +107,7 @@ socket.on('gameData',function(newdata){
 
 			 	if (newdata.result == '1') {
 			 		lastresType = '1';
-			 		$('.innerResult').append('<dl class="columns sred"><dt>A</dt><dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd></dl>');
+			 		$('.innerResult').append('<dl class="columns sblue"><dt>A</dt><dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd></dl>');
 			 		
 			 	}else if (newdata.result == '2') {
 
@@ -118,7 +118,7 @@ socket.on('gameData',function(newdata){
 
 			 		lastresType = '3';
 			 		
-			 		$('.innerResult').append('<dl class="columns sblue"><dt>C</dt><dd><div class="circle-blue res-circle">'+newdata.rounds+'</div></dd></dl>');
+			 		$('.innerResult').append('<dl class="columns sred"><dt>C</dt><dd><div class="circle-red res-circle">'+newdata.rounds+'</div></dd></dl>');
 			 	}
 
 			}
@@ -185,7 +185,7 @@ function getSecondary(prevdata) {
 			  		lastresType = '1';
 
 
-			  		$('.innerResult .columns').last().append('<dd><div class="circle-red res-circle">'+pastdata.rounds+'</div></dd>');
+			  		$('.innerResult .columns').last().append('<dd><div class="circle-blue res-circle">'+pastdata.rounds+'</div></dd>');
 
 			  		
 
@@ -200,7 +200,7 @@ function getSecondary(prevdata) {
 			  		lastresType = '3';
 
 			  		
-			  		$('.innerResult .columns').last().append('<dd><div class="circle-blue res-circle">'+pastdata.rounds+'</div></dd>');
+			  		$('.innerResult .columns').last().append('<dd><div class="circle-red res-circle">'+pastdata.rounds+'</div></dd>');
 			  	}
 
 
@@ -211,7 +211,7 @@ function getSecondary(prevdata) {
 
 			  	if (pastdata.gameResult == '1') {
 			  		lastresType = '1';
-			  		$('.innerResult').append('<dl class="columns sred"><dt>A</dt><dd><div class="circle-red res-circle">'+pastdata.rounds+'</div></dd></dl>');
+			  		$('.innerResult').append('<dl class="columns sblue"><dt>A</dt><dd><div class="circle-blue res-circle">'+pastdata.rounds+'</div></dd></dl>');
 			  		
 
 			  	} else if (pastdata.gameResult == '2') {
@@ -223,7 +223,7 @@ function getSecondary(prevdata) {
 
 			  		lastresType = '3';
 			  		
-			  		$('.innerResult').append('<dl class="columns sblue"><dt>C</dt><dd><div class="circle-blue res-circle">'+pastdata.rounds+'</div></dd></dl>');
+			  		$('.innerResult').append('<dl class="columns sred"><dt>C</dt><dd><div class="circle-red res-circle">'+pastdata.rounds+'</div></dd></dl>');
 			  	}
 		  	}
 
