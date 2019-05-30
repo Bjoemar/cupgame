@@ -51,15 +51,15 @@ app.get('/0F0D243A1E8960D137D1FB188B9E8B3BB1B300814E4CCD867565508CEE623B87',func
 
 
 
-server.listen(5000, function() {
-  console.log('Starting server on port 5000');
-});
+// server.listen(5000, function() {
+//   console.log('Starting server on port 5000');
+// });
 
 
 
-// server.listen(server_port , server_ip_address , function(){
-// 	console.log('Listening on' + server_ip_address + ', port' + server_port);	
-// })
+server.listen(server_port , server_ip_address , function(){
+	console.log('Listening on' + server_ip_address + ', port' + server_port);	
+})
 
 
 
@@ -131,11 +131,11 @@ setInterval(function(){
 
 
 				setTimeout(function(){
-					// dbo.collection('game').insertOne(gameObj , function(eer , res){
-					// 	if (err) throw err;
-					// 	console.log('ROUNDS' + rounds + 'Recorded');
-					// 	db.close();
-					// });
+					dbo.collection('game').insertOne(gameObj , function(eer , res){
+						if (err) throw err;
+						console.log('ROUNDS' + rounds + 'Recorded');
+						db.close();
+					});
 				},1000);
 
 		});
