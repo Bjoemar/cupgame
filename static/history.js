@@ -191,13 +191,13 @@ socket.on('resdata' , function(data){
 
 		if (data[0].gameResult == 1) {
 			var gameres = 'A';
-			$('#result_num').css('color' , 'red')
+			$('#result_num').css('color' , 'blue')
 		} else if (data[0].gameResult == 2) {
 			var gameres = 'B';
 			$('#result_num').css('color' , 'green')
 		} else if (data[0].gameResult == 3) {
 			var gameres = 'C';
-			$('#result_num').css('color' , 'blue')
+			$('#result_num').css('color' , 'red')
 		}
 
 		$('#result_num').html(gameres);
