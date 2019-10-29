@@ -5,11 +5,22 @@ var D = today.getDate();
 var M = today.getMonth() + 1;
 var Y = today.getFullYear();
 
-if (D < 10) {
-	$('#date-picker').val(Y+'-0'+M+'-0'+D);
-}else {
-	$('#date-picker').val(Y+'-0'+M+'-'+D);
-}
+
+ if (M < 10) {
+ 	if (D < 10) {
+
+ 		var today_data_date = Y+'-0'+M+'-0'+D;
+ 	} else {
+ 		var today_data_date = Y+'-0'+M+'-'+D;
+ 	}
+ } else {
+ 	if (D < 10) {
+ 		var today_data_date = Y+'-'+M+'-0'+D;
+ 	} else {
+ 		var today_data_date = Y+'-'+M+'-'+D;
+ 	}
+ }
+
 
 var sort = $ ('#date-picker').val();
 
