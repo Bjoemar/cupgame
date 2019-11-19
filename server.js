@@ -177,7 +177,7 @@ io.on('connection' ,function(socket){
 			var mysort = {_id : -1};
 			dbo.collection('game').find().limit(100).sort(mysort).toArray(function(err , result){
 				if (err) throw err;
-				io.to(socketid).emit('loadData' , result);
+				socket.emit('loadData' , result);
 				db.close();
 			})
 		})
@@ -194,7 +194,7 @@ socket.on('LoadMoreResult',function(data){
 		dbo.collection("game").find(query).limit(data.result_limit).sort(mysort).toArray(function(err,result){
 			if (err) throw err;
 			console.log(result)
-			io.to(socketid).emit('loadData' , result);
+			socket.emit('loadData' , result);
 			db.close();
 		})
 	})
@@ -212,13 +212,13 @@ socket.on('LoadMoreResult',function(data){
 			var query = {nowdate : date.sort};
 			dbo.collection('game').find(query).limit(10).sort(mysort).toArray(function(err, result) {
 					if(err) throw err;
-					io.to(socketid).emit('loadDatahis' , result);
+					socket.emit('loadDatahis' , result);
 					db.close();
 			});
 
 			dbo.collection('game').find(query).count(function(err, dataCount) {
 		  
-				      io.to(socketid).emit('pageCount', dataCount);
+				      socket.emit('pageCount', dataCount);
 				      db.close();
 				});			
 
@@ -235,13 +235,13 @@ socket.on('LoadMoreResult',function(data){
 				if (err) throw err;
 				var dbo = db.db('cupgame');
 				dbo.collection('game').find(query).limit(10).sort(mysort).toArray(function(err , result){
-					io.to(socketid).emit('loadsort' , result);
+					socket.emit('loadsort' , result);
 
 					db.close();
 				});
 				dbo.collection('game').find(query).count(function(err, dataCount) {
 		     
-				      io.to(socketid).emit('pageCount', dataCount);
+				      socket.emit('pageCount', dataCount);
 				      db.close();
 			});
 		});
@@ -262,10 +262,10 @@ socket.on('LoadMoreResult',function(data){
 		   // { $and : [{ hash : data.hashcode } , {rounds : data.roundcode }] };
 		  dbo.collection("game").find(query).toArray(function(err, result) {
 		  	if (result.length > 0) {
-		  		 io.to(socketid).emit('resdata', result);
+		  		 socket.emit('resdata', result);
 		  		
 		  	} else {
-		    	 io.to(socketid).emit('invalid');
+		    	 socket.emit('invalid');
 		  	}
 		    db.close();
 		  });
@@ -285,7 +285,7 @@ socket.on('LoadMoreResult',function(data){
 			if (err) throw err;
 			var dbo = db.db('cupgame');
 			dbo.collection('game').find(query).skip(data.skip).limit(10).sort(mysort).toArray(function(err, result){
-				io.to(socketid).emit('getpageload', result);
+				socket.emit('getpageload', result);
 				db.close();
 
 			});
