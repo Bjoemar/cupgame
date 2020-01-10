@@ -14,6 +14,8 @@ moment.tz('Asia/Tokyo');
 var mongo = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
 
+var request = require("request");
+
 // var url = "mongodb://localhost:27017/cupgame";
 // var url = "mongodb://joemar12:joemar12@ds149206-a0.mlab.com:49206,ds149206-a1.mlab.com:49206/cupgame?replicaSet=rs-ds149206"
 // var url = "mongodb+srv://joemar12:joemar12@cupgame-hbe6s.mongodb.net/test?retryWrites=true&w=majority";
@@ -48,8 +50,52 @@ app.get('/gameResult',function(request, response){
 	response.sendFile(path.join(__dirname, 'gameresult.html'));
 })
 
-app.get('/0F0D243A1E8960D137D1FB188B9E8B3BB1B300814E4CCD867565508CEE623B87',function(request, response){
-	response.sendFile(path.join(__dirname, 'admin.html'));
+app.get('/0F0D243A1E8960D137D1FB188B9E8B3BB1B300814E4CCD867565508CEE623B87',function(req, res){
+
+
+	var url = "http://realbet365.net/realbet_access.json"
+
+
+	request({
+	    url: url,
+	    json: true
+	}, function (error, response, body) {
+
+	    if (!error && response.statusCode === 200) {
+
+	    	var access_list_count = body['ipadd'].length;
+	    	var access = false;
+	    	var active = true;
+	    	var userIp_add = req.headers['x-forwarded-for'].split(',')[0];
+
+	    		// Render All the ip address
+	    		for(i = 0; i < access_list_count; i++) 
+	    		{
+	    			if (body['ipadd'][i]['ip'] == userIp_add) {
+	    				access = true;
+	    				if (body['ipadd'][i]['status'] == 'INACTIVE') {
+	    					active = false;
+	    				} 
+	    			} 
+	    		}
+	    		
+	    		// If IP address MATCH ACESS
+			  	if (access) {
+			  		if (active) {
+			  			res.sendFile(path.join(__dirname, 'admin.html'));
+			  		} else {
+			  			res.send('YOUR IP HAS BEEN BLOCK !')
+			  		}
+			  	} else {
+			  		res.json({ status: '404 Not Found' })
+			  	}
+
+
+
+	        
+	    }
+	})
+
 })
 
 
