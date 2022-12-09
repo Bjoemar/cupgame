@@ -13,7 +13,7 @@
   "author": "JOEMAR BACLEA-AN",
   "license": "UNLICENSED",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "moment-timezone": "^0.5.25",
     "mongodb": "^3.2.3",
     "request": "^2.88.0",
